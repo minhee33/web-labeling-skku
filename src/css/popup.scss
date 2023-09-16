@@ -1,0 +1,172 @@
+@import "typography.scss";
+@import "color.scss";
+@import 'common.scss';
+
+.popup {
+    isolation: isolate;
+
+    width: 512px;
+    height: 488px;
+    box-sizing: border-box;
+
+    position: fixed;
+    left: calc(50vw - 512px/2);
+    top: calc(50vh - 488px/2);
+    z-index: 200;
+
+    background: $gray-10;
+
+    /* sdw-floor-2 */
+    box-shadow: 20px 20px 40px rgba(46, 46, 51, 0.04), 0px 0px 64px rgba(46, 46, 51, 0.02);
+    border-radius: 10px 10px 0px 0px;
+
+    filter: drop-shadow(0px 1px 0px rgba(255, 255, 255, 0.04));
+
+    //animation
+    // opacity: 0;
+    scale: 0.9;
+    transition: all 0.2s cubic-bezier(0.25, 0.1, 0.25, 0.1);
+
+    display: flex;
+    flex-direction: column;
+}
+
+.label-popup {
+    height: 271px;
+    top: calc(50vh - 271px/2);
+}
+
+.popup-header {
+    @extend .body1-700;
+    width: 100%;
+    height: 32px;
+
+    border-bottom: 1px solid $gray-8;
+
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    /* sdw-floor-1 */
+    filter: drop-shadow(16px 16px 32px rgba(46, 46, 51, 0.02)) drop-shadow(0px 0px 64px rgba(46, 46, 51, 0.01));
+}
+
+.popup-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 150; //헤더보단 위, 팝업보단 아래
+    width: 100vw;
+    height: 100vh;
+    background-color: $trans-black-10;
+}
+
+.show-popup {
+    scale: 1;
+    opacity: 1;
+}
+
+
+.fixed-bottom {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    z-index: 100;
+}
+
+
+///// LABEL-POPUP /////
+.label-popup-input {
+    width: 282px;
+    height: 40px;
+    background-color: white;
+    padding: 10px 24px;
+
+    box-sizing: border-box;
+    text-align: start;
+}
+
+.label-popup-cancel {
+    width: 86px;
+    height: 40px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    background: white;
+
+    cursor: pointer;
+}
+
+.label-popup-ok {
+    width: 86px;
+    height: 40px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    background: $twilight-5;
+
+    cursor: pointer;
+}
+
+.label-popup-content {
+    width: 100%;
+    height: 360px;
+
+    padding: 0 21px;
+    box-sizing: border-box;
+    overflow-y: scroll;
+}
+
+.content-item {
+    width: 100%;
+    height: 40px;
+    box-sizing: border-box;
+    padding: 10px 24px;
+    cursor: pointer;
+
+    text-align: start;
+}
+
+.content-item-clicked {
+    background-color: $twilight-10;
+}
+
+.select-popup-content {
+    width: 100%;
+    height: calc(100% - 72px);
+
+    padding: 18px 18px;
+    box-sizing: border-box;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    // flex-direction: row;
+    gap: 24px;
+    justify-content: center;
+}
+
+.select-content-item {
+    height: 100%;
+    box-sizing: border-box;
+    padding: 0px 24px;
+    cursor: pointer;
+
+    text-align: start;
+    background-color: white;
+    border-radius: 4px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.select-content-item-clicked {
+    background-color: $twilight-10;
+}

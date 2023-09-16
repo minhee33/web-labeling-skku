@@ -1,0 +1,725 @@
+@import './color.scss';
+@import './typography.scss';
+@import './common.scss';
+
+* {
+    font-family: 'Pretendard Variable';
+}
+
+button {
+    border: 0;
+    outline: none;
+    background-color: transparent;
+    margin: 0;
+    cursor: pointer;
+}
+
+button:hover,
+button:active {
+    border-style: solid;
+}
+
+.circle-12 {
+    width: 12px;
+    height: 12px;
+    border-radius: 50px;
+    background-color: $white;
+}
+
+.gray-3-line {
+    width: 1px;
+    height: calc(100% - 12px);
+    background-color: $gray-3;
+}
+
+.align-self-center {
+    align-self: center;
+}
+
+.business-grid-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #FFFFFF;
+
+    border: 1px solid $gray-9;
+    border-radius: 16px;
+}
+
+@media (max-width:768px) {
+
+    //mobile일 때
+    .business-grid-item {
+        height: auto;
+        max-width: 152px;
+        padding: 20px 6.67px;
+    }
+}
+
+@media (min-width:768px) {
+
+    //desktop일 때
+    .business-grid-item {
+        padding: 36px 24px;
+    }
+}
+
+.grid-column-2 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.margin-8 {
+    margin: 8px;
+}
+
+.indicator {
+    position: fixed;
+    right: 20px;
+    height: 100vh;
+}
+
+///// BUTTON /////
+.custom-btn {
+    border-radius: 12px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    width: fit-content;
+    align-self: center;
+}
+
+///// BTN-PRIMARY /////
+.btn-primary {
+    @extend .custom-btn;
+    color: $white;
+    background-color: $twilight-5;
+}
+
+.btn-primary:hover {
+    background-color: $twilight-4;
+}
+
+
+.btn-primary:active {
+    background-color: $twilight-3;
+}
+
+.btn-primary:disabled {
+    color: $twilight-9;
+    background-color: $twilight-10;
+}
+
+///// BTN-SECONDARY /////
+.btn-secondary {
+    @extend .custom-btn;
+    color: $white;
+    background-color: $gray-3;
+}
+
+.btn-secondary:hover {
+    background-color: $gray-2;
+}
+
+
+.btn-secondary:active {
+    background-color: $gray-1;
+}
+
+.btn-secondary:disabled {
+    color: $gray-8;
+    background-color: $gray-10;
+}
+
+///// BTN-TERTIARY /////
+.btn-tertiary {
+    @extend .custom-btn;
+    color: $gray-3;
+    background-color: $gray-10;
+}
+
+.btn-tertiary:hover {
+    background-color: $gray-9;
+}
+
+
+.btn-tertiary:active {
+    background-color: $gray-8;
+}
+
+.btn-tertiary:disabled {
+    color: $gray-8;
+    background-color: $gray-10;
+}
+
+///// BTN-WHITE /////
+.btn-white {
+    @extend .custom-btn;
+    color: $gray-3;
+    background-color: $white;
+}
+
+.btn-white:hover {
+    background-color: $gray-10;
+}
+
+
+.btn-white:active {
+    background-color: $gray-9;
+}
+
+.btn-white:disabled {
+    color: $gray-7;
+    background-color: $gray-8;
+}
+
+///// BTN-DANGER /////
+.btn-danger {
+    @extend .custom-btn;
+    color: $white;
+    background-color: $red-5;
+}
+
+.btn-danger:hover {
+    background-color: $red-4;
+}
+
+
+.btn-danger:active {
+    background-color: $red-3;
+}
+
+.btn-danger:disabled {
+    color: $red-9;
+    background-color: $red-10;
+}
+
+
+
+///// SIZE /////
+.size-small {
+    @extend .body2-700;
+    padding: 10px 16px;
+}
+
+.size-medium {
+    @extend .body1-700;
+    padding: 12px 20px;
+}
+
+.size-large {
+    @extend .heading3-700;
+    padding: 14px 24px;
+}
+
+///// ICON /////
+.icon-left {
+    margin-right: 4px;
+}
+
+.icon-right {
+    margin-left: 4px;
+}
+
+.icon-small {
+    font-size: 14px;
+}
+
+.icon-medium {
+    font-size: 16px;
+}
+
+.icon-large {
+    font-size: 18px;
+}
+
+///// TEXT FIELD /////
+.text-field {
+    @extend .body1-500;
+    border-radius: 12px;
+    padding: 16px 20px;
+    border: 1px solid $gray-9;
+    color: $gray-3;
+}
+
+.text-field::placeholder {
+    @extend .body1-500;
+    color: $gray-7;
+}
+
+.text-field:hover {
+    outline: none;
+    border: 1px solid $twilight-5;
+}
+
+.text-field:focus {
+    outline: none;
+    border: 1px solid $twilight-5;
+}
+
+///// ARCODION /////
+.arcodion-list-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    text-align: start;
+    // color: $white;
+    width: 100%;
+}
+
+.arcodion-list-item-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 16px 0px;
+    cursor: pointer;
+}
+
+.arcodion-list-item-title>i {
+    width: 24px;
+    height: 24px;
+    color: $gray-5;
+}
+
+///// DROPDOWN /////
+.dropdown {
+    display: inline-block;
+    position: relative;
+}
+
+.dropdown>button {
+    @extend .body1-500;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    border: 1px solid $gray-9;
+    border-radius: 12px;
+
+    padding: 16px 20px;
+    cursor: pointer;
+
+    min-width: 100px;
+}
+
+.clicked-dropdown-btn {
+    border: 1px solid $twilight-5 !important;
+}
+
+.dropdown>button:hover {
+    @extend .clicked-dropdown-btn;
+}
+
+.dropdown-options {
+    display: none;
+    position: absolute;
+    overflow: auto;
+
+    background: $white;
+    box-shadow: 20px 20px 40px rgba(46, 46, 51, 0.04), 0px 0px 64px rgba(46, 46, 51, 0.02);
+    border-radius: 12px;
+    padding: 8px;
+    margin-top: 4px;
+
+    width: calc(100% - 16px);
+}
+
+//isScrollable
+.dropdown-scrollable {
+    max-height: 300px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.clicked-dropdown-options {
+    // click시에 보이도록
+    display: block;
+    //fixed-bottom보다 위에 뜨도록
+    z-index: 150;
+}
+
+.dropdown-item-btn {
+    @extend .body1-500;
+    display: block;
+    padding: 16px 20px;
+    text-align: start;
+    color: $gray-3;
+    width: 100%;
+}
+
+.selected-dropdown-item-btn {
+    color: $twilight-5;
+}
+
+.dropdown-item-btn:hover {
+    background-color: $gray-10;
+    border-radius: 12px;
+}
+
+///// ANSWER ITEM /////
+.answer-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 20px 16px;
+    flex-direction: row;
+    justify-content: start;
+    gap: 8px;
+
+    background: white;
+
+    box-shadow: 20px 20px 40px rgba(46, 46, 51, 0.04), 0px 0px 64px rgba(46, 46, 51, 0.02);
+    border-radius: 16px;
+}
+
+@media (min-width:768px) {
+
+    //desktop일 때
+    .answer-item {
+        min-height: 280px; //344 - 64
+        width: 256px; //320 - 64
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 32px;
+        gap: 8px;
+
+        background: white;
+
+        box-shadow: 24px 24px 48px rgba(46, 46, 51, 0.06), 0px 0px 64px rgba(46, 46, 51, 0.03);
+        border-radius: 16px;
+        text-align: start;
+    }
+}
+
+.answer-item-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 4px;
+}
+
+///// SOLUTION ITEM /////
+/// 기준: 924px
+.solution-item-body {
+    position: relative;
+}
+
+.solution-item {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: start;
+    padding: 0px 0px 20px;
+    gap: 20px;
+    // width: 100%;
+
+    background: white;
+
+    box-shadow: 24px 24px 48px rgba(46, 46, 51, 0.06), 0px 0px 64px rgba(46, 46, 51, 0.03);
+    border-radius: 24px;
+}
+
+.solution-item-gradient-box {
+    position: absolute;
+    height: 167px;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+}
+
+.solution-item-gradient {
+    position: absolute;
+    height: 56px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%);
+}
+
+.solution-item-first {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: start;
+    padding: 0px 20px;
+    gap: 16px;
+}
+
+@media (min-width:924px) {
+
+    //desktop일 때
+    .solution-item {
+        align-self: center;
+
+        padding: 0;
+        flex-direction: row;
+        border-radius: 48px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: calc(100vw - 80px);
+        max-width: 1200px;
+        overflow: hidden;
+        gap: 40px;
+    }
+
+    .solution-item-first-box {
+        margin-top: auto;
+        margin-bottom: auto;
+        margin-left: 64px;
+
+        // width: 300px;
+        // background-color: blue;
+    }
+
+    .solution-item-first {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: start;
+        gap: 20px;
+        align-self: center;
+
+        white-space: nowrap;
+    }
+
+    .solution-item-second {
+        width: 100%;
+        max-width: 700px;
+        min-width: 440px;
+        object-fit: cover;
+    }
+}
+
+///// QUALITY ITEM /////
+.quality-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: start;
+    padding: 16px;
+    gap: 12px;
+
+    background: $gray-10;
+    border-radius: 16px;
+
+    width: 208px; //240 - 32
+}
+
+@media (min-width:768px) and (max-width: 1023px) {
+
+    //tablet일 때
+    .quality-item {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        text-align: start;
+        width: 200px; //232 - 32
+        gap: 8px;
+    }
+}
+
+@media (min-width:1024px) {
+
+    //desktop일 때
+    .quality-item {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        text-align: start;
+        width: 170px; //202 - 32
+        gap: 8px;
+    }
+}
+
+///// ICON CARD /////
+.icon-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: start;
+    padding: 16px;
+    gap: 4px;
+
+    width: calc(50vw - 60px);
+
+
+    background: white;
+    box-shadow: 24px 24px 48px rgba(46, 46, 51, 0.06), 0px 0px 64px rgba(46, 46, 51, 0.03);
+    border-radius: 16px;
+}
+
+@media (min-width:768px)and(max-width: 1024px) {
+
+    //tablet일 때
+    .icon-card {
+        gap: 8px;
+        padding: 32px;
+        width: 232px; //296-padding
+    }
+}
+
+@media (min-width: 1024px) {
+
+    //desktop일 때
+    .icon-card {
+        gap: 8px;
+        padding: 32px;
+        width: calc(33vw - 169px); //- padding
+
+        //TODO: 수정 필요
+        max-width: 300px;
+    }
+}
+
+
+/////ICON-BUTTON/////
+.icon-button {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    // gap: 12px;
+}
+
+.icon-button-i {
+    border-radius: 12px;
+    // padding: 12px 16px;
+    // width: fit-content;
+
+    width: 56px;
+    height: 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.icon-button-i-clicked {
+    border-radius: 12px;
+    // padding: 12px 16px;
+    // width: fit-content;
+
+    width: 56px;
+    height: 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    background: $gray-10;
+}
+
+
+/////FILE-ITEM/////
+.file-item {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
+    justify-content: flex-start;
+    align-items: center;
+
+    padding: 10px 24px;
+    gap: 8px;
+    background-color: white;
+
+    box-sizing: border-box;
+
+    cursor: pointer;
+}
+
+.file-item-clicked {
+    background-color: $twilight-10 !important;
+}
+
+.check {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    background-color: $gray-7;
+}
+
+.check>i {
+    font-size: 20px;
+    color: white;
+}
+
+.uncheck {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    background-color: $gray-10;
+}
+
+.uncheck>i {
+    font-size: 20px;
+    color: $gray-10;
+}
+
+/////WORK-ITEM/////
+.work-item {
+
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 10px 36px 10px 24px;
+    gap: 8px;
+    background-color: white;
+
+    box-sizing: border-box;
+
+    cursor: pointer;
+}
+
+.check-gray-3 {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    background-color: $gray-3;
+}
+
+.check-gray-3>i {
+    font-size: 20px;
+    color: white;
+}
+
+.uncheck-gray-3 {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    background-color: $gray-10;
+}
+
+.uncheck-gray-3>i {
+    font-size: 20px;
+    color: white;
+}
+
+
+/////BUTTON/////
+.box-primary-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    background: $twilight-5;
+    color: white;
+    @extend .body2-500;
+
+    cursor: pointer;
+    box-sizing: border-box;
+
+    height: fit-content;
+    min-width: 86px;
+    padding: 10px 0px;
+}

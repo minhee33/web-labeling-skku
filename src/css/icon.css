@@ -1,0 +1,263 @@
+@font-face {
+  font-family: 'icomoon';
+  src: url('fonts/icomoon.eot?habev8');
+  src: url('fonts/icomoon.eot?habev8#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?habev8') format('truetype'),
+    url('fonts/icomoon.woff?habev8') format('woff'),
+    url('fonts/icomoon.svg?habev8#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-shown:before {
+  content: "\e93a";
+}
+
+.icon-clothes_bottom:before {
+  content: "\e907";
+}
+
+.icon-clothes_skirt:before {
+  content: "\e908";
+}
+
+.icon-icon_clothes_pants:before {
+  content: "\e909";
+}
+
+.icon-icon-arrow_down:before {
+  content: "\e90a";
+}
+
+.icon-icon-arrow_left:before {
+  content: "\e90b";
+}
+
+.icon-icon-arrow_right:before {
+  content: "\e90c";
+}
+
+.icon-icon-arrow_up:before {
+  content: "\e90d";
+}
+
+.icon-icon-bell-stroke:before {
+  content: "\e90e";
+}
+
+.icon-icon-camera:before {
+  content: "\e90f";
+}
+
+.icon-icon-caution-filled-circled:before {
+  content: "\e910";
+}
+
+.icon-icon-caution-stroke-circled:before {
+  content: "\e911";
+}
+
+.icon-icon-check-filled-circled:before {
+  content: "\e912";
+}
+
+.icon-icon-check-stroke-circled:before {
+  content: "\e913";
+}
+
+.icon-icon-check:before {
+  content: "\e914";
+}
+
+.icon-icon-clothes_box:before {
+  content: "\e915";
+}
+
+.icon-icon-clothes_top:before {
+  content: "\e916";
+}
+
+.icon-icon-copy:before {
+  content: "\e917";
+}
+
+.icon-icon-disclosure-down:before {
+  content: "\e918";
+}
+
+.icon-icon-disclosure-up:before {
+  content: "\e919";
+}
+
+.icon-icon-double_arrow_left:before {
+  content: "\e91a";
+}
+
+.icon-icon-double_arrow_right:before {
+  content: "\e91b";
+}
+
+.icon-icon-download:before {
+  content: "\e91c";
+}
+
+.icon-icon-filter:before {
+  content: "\e91d";
+}
+
+.icon-icon-gallery:before {
+  content: "\e91e";
+}
+
+.icon-icon-globe:before {
+  content: "\e91f";
+}
+
+.icon-icon-hamburger:before {
+  content: "\e920";
+}
+
+.icon-icon-heart-filled:before {
+  content: "\e921";
+}
+
+.icon-icon-heart-stroke:before {
+  content: "\e922";
+}
+
+.icon-icon-home-filled:before {
+  content: "\e923";
+}
+
+.icon-icon-home-stroke:before {
+  content: "\e924";
+}
+
+.icon-icon-model:before {
+  content: "\e925";
+}
+
+.icon-icon-modelcut:before {
+  content: "\e926";
+}
+
+.icon-icon-pencil:before {
+  content: "\e927";
+}
+
+.icon-icon-pile:before {
+  content: "\e928";
+}
+
+.icon-icon-plus:before {
+  content: "\e929";
+}
+
+.icon-icon-redo:before {
+  content: "\e92a";
+}
+
+.icon-icon-refresh:before {
+  content: "\e92b";
+}
+
+.icon-icon-save-fill:before {
+  content: "\e92c";
+}
+
+.icon-icon-save-stroke:before {
+  content: "\e92d";
+}
+
+.icon-icon-search:before {
+  content: "\e92e";
+}
+
+.icon-icon-setting-stroke-1:before {
+  content: "\e92f";
+}
+
+.icon-icon-setting-stroke:before {
+  content: "\e930";
+}
+
+.icon-icon-support-filled-circled:before {
+  content: "\e931";
+}
+
+.icon-icon-support-stroke-circled:before {
+  content: "\e932";
+}
+
+.icon-icon-three_dots:before {
+  content: "\e933";
+}
+
+.icon-icon-trash_can-stroke:before {
+  content: "\e934";
+}
+
+.icon-icon-undo:before {
+  content: "\e935";
+}
+
+.icon-icon-upload:before {
+  content: "\e936";
+}
+
+.icon-icon-x-filled-circled:before {
+  content: "\e937";
+}
+
+.icon-icon-x-stroke-circled:before {
+  content: "\e938";
+}
+
+.icon-icon-x:before {
+  content: "\e939";
+}
+
+.icon-upload:before {
+  content: "\e900";
+}
+
+.icon-delete:before {
+  content: "\e901";
+}
+
+.icon-edit:before {
+  content: "\e902";
+}
+
+.icon-save:before {
+  content: "\e903";
+}
+
+.icon-create:before {
+  content: "\e904";
+}
+
+.icon-prev:before {
+  content: "\e905";
+}
+
+.icon-next:before {
+  content: "\e906";
+}

@@ -1,0 +1,47 @@
+///// HORIZONTAL /////
+.horizontal-width-bigger {
+    $offset: calc(50vh - 20.07vw - 167px);
+    position: absolute;
+    right: 0px;
+    left: 0px;
+    top: $offset;
+    bottom: $offset;
+
+    width: 100%;
+}
+
+.horizontal-height-bigger {
+    $offset: calc(416px + 50vw - 124.5vh);
+    position: absolute;
+    left: $offset;
+    right: $offset;
+
+    top: 0px;
+    bottom: 0px;
+
+    height: 100%;
+}
+
+///// VERTICAL /////
+.vertical-width-bigger {
+    $offset: calc(50vh - 38.3vw - 160px);
+    position: absolute;
+    right: 0px;
+    left: 0px;
+    top: $offset;
+    bottom: $offset;
+
+    width: 100%;
+}
+
+.vertical-height-bigger {
+    $offset: calc(208.7px + 50vw - 65.2vh);
+    position: absolute;
+    left: $offset;
+    right: $offset;
+
+    top: 0px;
+    bottom: 0px;
+
+    height: 100%;
+}
