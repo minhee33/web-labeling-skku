@@ -1,6 +1,6 @@
 import React from 'react';
 import "../../css/popup.scss";
-import { ParseLabel, ParseList, GarmentList, KeyPointList } from "../../constant/ParseList";
+import { ParseLabel, ParseList, KeyPointList } from "../../constant/ParseList";
 
 type LabelPopUpProps = {
     input: any;
@@ -18,9 +18,6 @@ const LabelPopUp = ({ input, setInput, onCancel, onOK, key, tabIndex }: LabelPop
     switch (tabIndex) {
         case 0:
             itemList = ParseList;
-            break;
-        case 1:
-            itemList = GarmentList;
             break;
         case 2:
             itemList = KeyPointList;

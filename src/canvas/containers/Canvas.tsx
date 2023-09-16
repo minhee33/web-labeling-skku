@@ -72,19 +72,6 @@ const Canvas = () => {
     //parse list, filled된 parse list
     const [clickedParseIndex, setClickedParseIndex] = useState<number>(-1);//-1이면 클릭된 거 없음
 
-    ///////////////////////////
-    //////////GARMENT//////////
-    ///////////////////////////
-    const [garmentPoints, setGarmentPoints] = useState<number[][][]>([]);//ratio=1일 때의 정보를 가지고 있음
-    const [garmentFlattenedPoints, setGarmentFlattenedPoints] = useState<number[][]>([]);
-    const [garmentLabelPoints, setGarmentLabelPoints] = useState<ParseLabel[]>([]);//index에 맞게 label 가지고 있음
-    const [isGarmentMouseOverPoint, setGarmentMouseOverPoint] = useState<boolean[]>([]); //default: false
-    const [isGarmentPolyComplete, setGarmentPolyComplete] = useState<boolean[]>([]); //default: false
-    //결과 list
-    const [garmentResultParseList, setGarmentResultParseList] = useState<ResultInterface[]>([]);
-    //parse list, filled된 parse list
-    const [clickedGarmentParseIndex, setClickedGarmentParseIndex] = useState<number>(-1);//-1이면 클릭된 거 없음
-
     /////////////////////////////
     //////////KEYPOINTS//////////
     /////////////////////////////
@@ -107,7 +94,7 @@ const Canvas = () => {
     //pinch zoom
     const [ratio, setRatio] = useState(1);
 
-    //menu tab index 0(parse), 1(garment), 2(keypoints)
+    //menu tab index 0(parse), 2(keypoints)
     const [tabIndex, setTabIndex] = useState(0);
     //window tab index 0(labeling)
     const [windowIndex, setWindowIndex] = useState(0);
@@ -153,8 +140,6 @@ const Canvas = () => {
         switch (realIndex) {
             case 0:
                 return points;
-            case 1:
-                return garmentPoints;
             case 2:
                 return keyPoints;
             default:
@@ -168,9 +153,6 @@ const Canvas = () => {
             case 0:
                 setPoints(obj);
                 break;
-            case 1:
-                setGarmentPoints(obj);
-                break;
             case 2:
                 setKeyPoints(obj);
                 break;
@@ -182,8 +164,6 @@ const Canvas = () => {
         switch (realIndex) {
             case 0:
                 return flattenedPoints;
-            case 1:
-                return garmentFlattenedPoints;
             default:
                 return [];
         }
@@ -194,9 +174,6 @@ const Canvas = () => {
             case 0:
                 setFlattenedPoints(obj);
                 break;
-            case 1:
-                setGarmentFlattenedPoints(obj);
-                break;
         }
     }
     //labelPoints
@@ -205,8 +182,6 @@ const Canvas = () => {
         switch (realIndex) {
             case 0:
                 return labelPoints;
-            case 1:
-                return garmentLabelPoints;
             case 2:
                 return keyLabelPoints;
             default:
@@ -219,9 +194,6 @@ const Canvas = () => {
             case 0:
                 setLabelPoints(obj);
                 break;
-            case 1:
-                setGarmentLabelPoints(obj);
-                break;
             case 2:
                 setKeyLabelPoints(obj);
                 break;
@@ -233,8 +205,6 @@ const Canvas = () => {
         switch (realIndex) {
             case 0:
                 return isMouseOverPoint;
-            case 1:
-                return isGarmentMouseOverPoint;
             case 2:
                 return isKeyMouseOverPoint;
             default:
@@ -247,9 +217,6 @@ const Canvas = () => {
             case 0:
                 setMouseOverPoint(obj);
                 break;
-            case 1:
-                setGarmentMouseOverPoint(obj);
-                break;
             case 2:
                 setKeyMouseOverPoint(obj);
                 break;
@@ -261,8 +228,6 @@ const Canvas = () => {
         switch (realIndex) {
             case 0:
                 return isPolyComplete;
-            case 1:
-                return isGarmentPolyComplete;
             default:
                 return [];
         }
@@ -273,9 +238,6 @@ const Canvas = () => {
             case 0:
                 setPolyComplete(obj);
                 break;
-            case 1:
-                setGarmentPolyComplete(obj);
-                break;
         }
     }
     //resultParseList
@@ -284,8 +246,6 @@ const Canvas = () => {
         switch (realIndex) {
             case 0:
                 return resultParseList;
-            case 1:
-                return garmentResultParseList;
             case 2:
                 return keyResultParseList;
             default:
@@ -298,9 +258,6 @@ const Canvas = () => {
             case 0:
                 setResultParseList(obj);
                 break;
-            case 1:
-                setGarmentResultParseList(obj);
-                break;
             case 2:
                 setKeyResultParseList(obj);
                 break;
@@ -312,8 +269,6 @@ const Canvas = () => {
         switch (realIndex) {
             case 0:
                 return clickedParseIndex;
-            case 1:
-                return clickedGarmentParseIndex;
             case 2:
                 return clickedKeyParseIndex;
             default:
@@ -325,9 +280,6 @@ const Canvas = () => {
         switch (realIndex) {
             case 0:
                 setClickedParseIndex(obj);
-                break;
-            case 1:
-                setClickedGarmentParseIndex(obj);
                 break;
             case 2:
                 setClickedKeyParseIndex(obj);
@@ -345,12 +297,6 @@ const Canvas = () => {
                 //parse
                 'content': await createParseJson(0),
                 'fileName': fileName + '_p',
-                'type': 'json'
-            },
-            {
-                //garment
-                'content': await createParseJson(1),
-                'fileName': fileName + '_gp',
                 'type': 'json'
             },
             {
@@ -381,12 +327,6 @@ const Canvas = () => {
                     //parse
                     'content': await createParseJson(0),
                     'fileName': fileName + '_p',
-                    'type': 'json'
-                },
-                {
-                    //garment
-                    'content': await createParseJson(1),
-                    'fileName': fileName + '_gp',
                     'type': 'json'
                 },
                 {
@@ -623,18 +563,12 @@ const Canvas = () => {
         setImageIndex(newIndex);
         setImageSource(fileList[newIndex]);//file instance
 
-        //parse, garment, key에서 다 받아와야함
+        //parse, key에서 다 받아와야함
         //parse
         setParseData(
             resultParseList[newIndex]["points"],
             resultParseList[newIndex]["labelPoints"],
             0
-        );
-        //garment
-        setParseData(
-            garmentResultParseList[newIndex]["points"],
-            garmentResultParseList[newIndex]["labelPoints"],
-            1
         );
         //key
         setParseData(
@@ -685,15 +619,6 @@ const Canvas = () => {
             "is_done": true,
         },
         ...resultParseList.slice(imageIndex + 1)
-        ]);
-        //garment
-        setGarmentResultParseList([...garmentResultParseList.slice(0, imageIndex),
-        {
-            "points": garmentPoints,
-            "labelPoints": garmentLabelPoints,
-            "is_done": true,
-        },
-        ...garmentResultParseList.slice(imageIndex + 1)
         ]);
         //keypoints
         setKeyResultParseList([...keyResultParseList.slice(0, imageIndex),
@@ -752,11 +677,7 @@ const Canvas = () => {
             ||
             (curIndex !== -1 &&
                 tabIndex === 0 &&
-                isPolyComplete[curIndex])
-            ||
-            (curIndex !== -1 &&
-                tabIndex === 1 &&
-                isGarmentPolyComplete[curIndex])) return;
+                isPolyComplete[curIndex])) return;
         else if (curIndex === -1) {
             //create
             //새로운 점 추가!!!!
@@ -857,7 +778,6 @@ const Canvas = () => {
 
         if (tabIndex === 2) return;
         if (tabIndex === 0 && (isPolyComplete[index] || points[index].length < 3)) return;
-        if (tabIndex === 1 && (isGarmentPolyComplete[index] || garmentPoints[index].length < 3)) return;
         //원 크게 보이도록
         e.target.scale({ x: 2, y: 2 });
         const newMouseOverPoint = isGeneralMouseOverPoint().map((item, i) => {
@@ -908,7 +828,6 @@ const Canvas = () => {
             console.log(e);
         }
     }, [points, isPolyComplete,
-        garmentPoints, isGarmentPolyComplete,
         position]);
 
 
@@ -955,40 +874,6 @@ const Canvas = () => {
         // setPastPoints([...pastPoints, newPoints]);
         // setPastIndex(pastPointsLen);
     };
-
-    //TODO: parse, garment 반영 안됨 + 알파
-    // const back = async () => {
-    //     console.log("===click back btn===");
-    //     if (pastIndex <= 0 || isNaN(pastIndex)) return;
-
-    //     const newPastIndex = pastIndex - 1;
-    //     setPastIndex(newPastIndex);
-
-    //     const newPoints = pastPoints[newPastIndex];
-    //     setPoints(newPoints);
-
-    //     //TODO: back시에 labelPoints 어떻게할지???ㅠㅠㅠㅠ
-    //     //flattened 수정
-    //     let newFlattenPoints = [];
-    //     newPoints.forEach((value) => {
-    //         //여기 수정해야함!!!!
-    //         let dummyList = [];
-    //         value.forEach((item) => {
-    //             dummyList.push(...item);
-    //         })
-    //         newFlattenPoints.push(dummyList);
-    //     });
-    //     setFlattenedPoints(newFlattenPoints);
-
-    //     //isMouseOverPoint, isPolyComplete 수정
-    //     const newMouseOverPoint = newPoints.map(() => false);
-    //     setMouseOverPoint(newMouseOverPoint);
-    //     const newPolyComplete = newPoints.map(() => true);
-    //     setPolyComplete(newPolyComplete);
-
-    //     //curIndex 수정
-    //     setCurIndex(-1);
-    // }
 
     const handleGroupDragEnd = (e: KonvaEventObject<DragEvent>, index: number) => {
         console.log("==handleGroupDragEnd==");
@@ -1114,45 +999,6 @@ const Canvas = () => {
                             }
 
                             {
-                                tabIndex === 1
-                                &&
-                                garmentPoints.map((item, index) => (
-                                    <PolygonAnnotation
-                                        // points={item}
-                                        // flattenedPoints={flattenedPoints[index]}
-                                        // 보여주는 건 ratio에 맞게 보여줘야함!!
-                                        points={item.map((x) => {
-                                            return x.map((y) => y * ratio);
-                                        })}
-                                        originalPoints={item}
-                                        flattenedPoints={
-                                            garmentFlattenedPoints[index].map((x) => x * ratio)
-                                        }
-                                        changePoints={changePoints}
-                                        deletePolygon={deletePolygon}
-                                        handlePointDragMove={(e) => handlePointDragMove(e, index)}
-                                        handleGroupDragEnd={(e) => handleGroupDragEnd(e, index)}
-                                        handleMouseOverStartPoint={(e) => handleMouseOverStartPoint(e, index)}
-                                        handleMouseOutStartPoint={(e) => handleMouseOutStartPoint(e, index)}
-                                        isFinished={isGarmentPolyComplete[index]}
-                                        polygonIndex={index}
-                                        key={`polygonannotation_garment${index}`}
-                                        work={work}
-                                        isDragging={isDragging}
-                                        setIsDragging={setIsDragging}
-                                        ratio={ratio}
-                                        isEnabled={garmentLabelPoints[index].is_shown}
-                                        fillEnabled={clickedGarmentParseIndex === index}
-                                        colorCode={
-                                            garmentLabelPoints[index].color !== "" ?
-                                                //default: green
-                                                garmentLabelPoints[index].color : "rgb(32, 255, 0)"
-                                        }
-                                    />
-                                ))
-                            }
-
-                            {
                                 tabIndex === 2
                                 &&
                                 keyPoints.map((item, index) => (
@@ -1171,7 +1017,6 @@ const Canvas = () => {
                                         handleGroupDragEnd={(e) => handleGroupDragEnd(e, index)}
                                         // handleMouseOverStartPoint={(e) => handleMouseOverStartPoint(e, index)}
                                         // handleMouseOutStartPoint={(e) => handleMouseOutStartPoint(e, index)}
-                                        // isFinished={isGarmentPolyComplete[index]}
                                         isFinished={true}
                                         polygonIndex={index}
 
@@ -1208,8 +1053,6 @@ const Canvas = () => {
                                         //완료된 작업인지?
                                         checkStatus={
                                             resultParseList[index]["is_done"]
-                                            &&
-                                            garmentResultParseList[index]["is_done"]
                                             &&
                                             keyResultParseList[index]["is_done"]
                                         }
@@ -1250,12 +1093,6 @@ const Canvas = () => {
                                     setTabIndex(0);
                                 }}>
                                 parse
-                            </div>
-                            <div className={`wrapper-tabmenu ${tabIndex === 1 ? "wrapper-tabmenu-clicked" : ""}`}
-                                onClick={() => {
-                                    setTabIndex(1);
-                                }}>
-                                garment
                             </div>
                             <div className={`wrapper-tabmenu ${tabIndex === 2 ? "wrapper-tabmenu-clicked" : ""}`}
                                 onClick={() => {
@@ -1300,45 +1137,6 @@ const Canvas = () => {
                                                 }}
                                                 colorCode={item["color"]}
                                                 key={`workitem_parse${index}`}
-                                            />
-                                        ))
-                                    }
-                                </div>
-                            }
-
-                            {/* 1. garment */}
-                            {
-                                (tabIndex === 1)
-                                &&
-                                <div className="wrapper-tab-content">
-                                    {
-                                        garmentLabelPoints.map((item, index) => (
-                                            <WorkItem
-                                                //현재 fill된 polygon인지?
-                                                clickStatus={clickedGarmentParseIndex === index}
-                                                //완료된 작업인지?
-                                                checkStatus={item["is_shown"]}
-                                                label={item["label_name"]}
-                                                onClick={() => {
-                                                    setClickedGarmentParseIndex(index);
-                                                }}
-                                                onCheck={() => {
-                                                    //눈 모양 눌렀을 때
-                                                    //is_shown 수정
-                                                    const newItem = item.setIsShown(!item.is_shown);
-                                                    setGarmentLabelPoints([...garmentLabelPoints.slice(0, index),
-                                                        // {
-                                                        //     ...item,
-                                                        //     "is_shown": !item["is_shown"]
-                                                        // },
-                                                        newItem,
-                                                    ...garmentLabelPoints.slice(index + 1)
-                                                    ]);
-
-                                                    //화면에서 안 보이게끔
-                                                }}
-                                                colorCode={item["color"]}
-                                                key={`workitem_garment${index}`}
                                             />
                                         ))
                                     }
@@ -1522,8 +1320,6 @@ const Canvas = () => {
                         let imageFileNameList = [];//image file key(확장자 뺀 것)
                         let parseJsonFileList = [];//json - parse
                         let parseJsonFileNameList = [];//json - parse file key(확장자 뺀 것)
-                        let garmentJsonFileList = [];//json - garment
-                        let garmentJsonFileNameList = [];//json - garment file key(확장자 뺀 것)
                         let keyJsonFileList = [];//json - keypoints
                         let keyJsonFileNameList = [];//json - keypoints file key(확장자 뺀 것)
                         let imageFilesLen = 0;
@@ -1537,11 +1333,7 @@ const Canvas = () => {
                             } else if (curFile.type.search("json") != -1) {
                                 //json일 때
                                 const curFileName = curFile.name;
-                                if (curFileName.includes("_gp.json")) {
-                                    //garment
-                                    garmentJsonFileList.push(curFile);
-                                    garmentJsonFileNameList.push(curFile.webkitRelativePath.split("_gp.")[0]);
-                                } else if (curFileName.includes("_p.json")) {
+                                if (curFileName.includes("_p.json")) {
                                     //parse
                                     parseJsonFileList.push(curFile);
                                     parseJsonFileNameList.push(curFile.webkitRelativePath.split("_p.")[0]);
@@ -1581,27 +1373,6 @@ const Canvas = () => {
                                 newResultParseList[matchIndex] = result;
                             }
                         }
-                        //garment
-                        var newGarmentResultParseList = new Array(imageFilesLen).fill(
-                            {
-                                "points": [],
-                                "labelPoints": [],
-                                "is_done": false
-                            }
-                        );
-                        //garmentJsonFileList에 존재한다면 저장해놓기
-                        for (let j = 0; j < garmentJsonFileNameList.length; j++) {
-                            const matchIndex = imageFileNameList.indexOf(garmentJsonFileNameList[j]);
-                            if (matchIndex !== -1) {
-                                const result = await getOneDataFromJson(garmentJsonFileList[j], matchIndex);
-                                setParseData(
-                                    result["points"],
-                                    result["labelPoints"],
-                                    1//garment
-                                );
-                                newGarmentResultParseList[matchIndex] = result;
-                            }
-                        }
                         //keypoints
                         var newKeyResultParseList = new Array(imageFilesLen).fill(
                             {
@@ -1632,7 +1403,6 @@ const Canvas = () => {
                         setRatio(1);
 
                         setResultParseList(newResultParseList);
-                        setGarmentResultParseList(newGarmentResultParseList);
                         setKeyResultParseList(newKeyResultParseList);
 
                         successFileToast.showToast();
@@ -1676,10 +1446,7 @@ const Canvas = () => {
                             for (let i = 0; i < fileLen; i++) {
                                 const tmpFile = e.target.files[i];
                                 const tmpFileName = tmpFile.name;
-                                if (tmpFileName.includes("_gp.json")) {
-                                    //garment
-                                    await getDataFromJson(tmpFile, imageIndex, 1);
-                                } else if (tmpFileName.includes("_p.json")) {
+                                if (tmpFileName.includes("_p.json")) {
                                     //parse
                                     await getDataFromJson(tmpFile, imageIndex, 0);
                                 } else if (tmpFileName.includes(".json")) {
@@ -1747,9 +1514,6 @@ const Canvas = () => {
                         if (tabIndex === 0) {
                             setLabelPoints([...labelPoints.slice(0, -1), labelItem]);
                             setClickedParseIndex(points.length - 1);
-                        } else if (tabIndex === 1) {
-                            setGarmentLabelPoints([...garmentLabelPoints.slice(0, -1), labelItem]);
-                            setClickedGarmentParseIndex(garmentPoints.length - 1);
                         } else if (tabIndex === 2) {
                             setKeyLabelPoints([...keyLabelPoints.slice(0, -1), labelItem]);
                             setClickedKeyParseIndex(keyPoints.length - 1);
@@ -1768,8 +1532,8 @@ const Canvas = () => {
                 <SelectPopUp
                     key="selectpopupkey"
                     title="Select type to import"
-                    itemList={["parse", "garment", "keypoints", "multiple"]}
-                    memoList={["", "", "", ",_p,_gp"]}
+                    itemList={["parse", "keypoints", "multiple"]}
+                    memoList={["", "", ",_p"]}
                     input={selectedType}//int
                     setInput={setSelectedType}//int
                     onCancel={() => {

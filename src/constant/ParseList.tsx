@@ -42,11 +42,6 @@ const ParseList: ParseLabel[] = [
     new ParseLabel("Right-shoe", "#6F606E"),
 ];
 
-const GarmentList: ParseLabel[] = [
-    new ParseLabel("l", "#360072"),
-    new ParseLabel("r", "#C50070")
-];
-
 const KeyPointList: ParseLabel[] = [
     new ParseLabel("0", "#780000", "Nose"),
     new ParseLabel("1", "#007300", "Neck"),
@@ -69,4 +64,4 @@ const KeyPointList: ParseLabel[] = [
     new ParseLabel("18", "#5BBA00", "Background")
 ];
 
-export { ParseLabel, ParseList, GarmentList, KeyPointList };
+export { ParseLabel, ParseList, KeyPointList };
