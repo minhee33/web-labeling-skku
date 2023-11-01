@@ -395,7 +395,6 @@ const Canvas = () => {
       make2zipfolder(tmpFileList, fileName, zip);
     }
 
-    //TODO: 파일명 변경
     make2zip(zip, "labeling");
 
     successExportToast.showToast();
@@ -408,7 +407,6 @@ const Canvas = () => {
         deleteCurWork();
       }
       // else if (event.which === 90 && event.ctrlKey) {
-      //TODO: 현재 막아놓음
       // console.log("ctrl+z");
       // back();
       // }
@@ -1010,7 +1008,14 @@ const Canvas = () => {
 
   return (
     <div>
-      <div className="wrapper">
+      <div
+        className="wrapper"
+        onClick={() => {
+          setIsSignupShown(false);
+          setIsSigninShown(false);
+          setIsCustomlabelsShown(false);
+        }}
+      >
         {/* 좌표 부분 */}
         <div className="wrapper-canvas">
           <Stage
@@ -1318,8 +1323,6 @@ const Canvas = () => {
         <IconButton
           iconName="icon-prev"
           onClick={() => {
-            //TODO: Save & Prev api 연결
-
             //저장
             saveToResultList();
 
@@ -1336,8 +1339,6 @@ const Canvas = () => {
         <IconButton
           iconName="icon-next"
           onClick={() => {
-            //TODO: Save & Next api 연결
-
             //저장
             saveToResultList();
 
@@ -1354,8 +1355,6 @@ const Canvas = () => {
         <IconButton
           iconName="icon-save"
           onClick={() => {
-            //TODO: Save api 연결
-
             //저장
             saveToResultList();
 
@@ -1612,7 +1611,6 @@ const Canvas = () => {
       {isPopupShown && (
         <LabelPopUp
           key="labelpopup"
-          tabIndex={tabIndex}
           input={createdLabel}
           setInput={setCreatedLabel}
           onCancel={() => {
@@ -1631,7 +1629,6 @@ const Canvas = () => {
               setKeyLabelPoints([...keyLabelPoints.slice(0, -1), labelItem]);
               setClickedKeyParseIndex(keyPoints.length - 1);
             }
-
             setIsPopupShown(false);
           }}
         />

@@ -31,7 +31,6 @@ export const dragBoundFunc = (stageWidth: number,
     return { x, y };
 };
 export const minMax = (points: any) => {
-    //TODO: type????
     return points.reduce((acc: number[], val: number) => {
         acc[0] = acc[0] === undefined || val < acc[0] ? val : acc[0];
         acc[1] = acc[1] === undefined || val > acc[1] ? val : acc[1];

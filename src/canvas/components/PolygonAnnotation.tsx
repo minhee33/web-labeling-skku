@@ -205,7 +205,6 @@ const PolygonAnnotation = (props: PolygonAnnotationProps) => {
                                     //선 사이에 새로운 점 추가
                                     const stage = e.target.getStage()!;
                                     const mousePos = getMousePos(stage);
-                                    //TODO: 수정
                                     changePoints(polygonIndex, [...originalPoints.slice(0, firstIndex + 1),
                                         mousePos,
                                     ...originalPoints.slice(firstIndex + 1)]);
@@ -227,7 +226,6 @@ const PolygonAnnotation = (props: PolygonAnnotationProps) => {
             {
                 // false &&
                 points.map((point, index) => {
-                    //TODO: 좌표 정밀하게 수정 필요
                     //- vertexRadius / 2
                     const x = point[0];
                     const y = point[1];

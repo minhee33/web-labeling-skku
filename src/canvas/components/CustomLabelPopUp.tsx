@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "../../css/popup.scss";
-import { ParseLabel } from "../../constant/ParseList";
 import { getCookie } from "../../cookies/cookies";
 import axios from "axios";
-import { API_BASE_URL } from "../../constant";
+import { API_BASE_URL, ParseLabel } from "../../constant";
 import { TextField } from "./TextField";
 import { useToast } from "../../hooks/useToast";
 import { useDispatch, useSelector } from "react-redux";
