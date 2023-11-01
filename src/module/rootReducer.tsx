@@ -1,8 +1,12 @@
-import { combineReducers } from 'redux';
-import toastReducer from './toastReducer';
+import { combineReducers } from "redux";
+import toastReducer from "./toastReducer";
+import labelReducer from "./labelReducer";
 
 const rootReducer = combineReducers({
-    toastReducer
+  toastReducer,
+  labelReducer,
 });
+
+export type IRootState = ReturnType<typeof rootReducer>;
 
 export default rootReducer;

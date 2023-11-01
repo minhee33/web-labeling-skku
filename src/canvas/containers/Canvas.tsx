@@ -25,6 +25,7 @@ import {
   WorkItem,
   SigninPopUp,
   SignupPopUp,
+  CustomLabelPopUp,
 } from "../components/index";
 import { IconButton, DropDown, Button } from "../../component/index";
 import { ParseLabel } from "../../constant/index";
@@ -135,6 +136,10 @@ const Canvas = () => {
   //export시에 선택된 type(SelectPopUp - export 관련)
   const [selectedExport, setSelectedExport] = useState<number>(-1); //int 저장
   const [isSelectExportPopupShown, setIsSelectExportPopupShown] =
+    useState<boolean>(false);
+
+  //labels popup 띄우는지
+  const [isCustomlabelsShown, setIsCustomlabelsShown] =
     useState<boolean>(false);
 
   //signin popup 띄우는지
@@ -1265,12 +1270,21 @@ const Canvas = () => {
       </div>
 
       <div className="top-menu eng-heading3-700 gray-7">
-        <div className="row center" style={{ width: "calc(100% - 300px)" }}>
+        <div className="row center" style={{ width: "calc(100% - 500px)" }}>
           <span className="eng-heading3-700 gray-7">Web labeling</span>
         </div>
         <div className="row self-end gap-8">
           <Button
             type="secondary"
+            label="custom labels"
+            icon="none"
+            size="small"
+            onClick={() => {
+              setIsCustomlabelsShown(true);
+            }}
+          />
+          <Button
+            type="tertiary"
             label="로그인"
             icon="none"
             size="small"
@@ -1668,6 +1682,11 @@ const Canvas = () => {
             }
           }}
         />
+      )}
+
+      {/* 커스텀라벨 관련 팝업 */}
+      {isCustomlabelsShown && (
+        <CustomLabelPopUp key="custom-label" onClose={setIsCustomlabelsShown} />
       )}
 
       {/* 로그인 관련 팝업 */}

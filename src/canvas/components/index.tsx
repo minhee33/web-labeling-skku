@@ -7,3 +7,4 @@ export * from "./WorkItem";
 export * from "./TextField";
 export * from "./SigninPopUp";
 export * from "./SignupPopup";
+export * from "./CustomLabelPopUp";

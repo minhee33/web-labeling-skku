@@ -12,10 +12,7 @@ type SigninPopUp = {
 };
 
 const SigninPopUp = ({ key, onClose }: SigninPopUp) =>
-  // { key, title, itemList, memoList, input, setInput, onCancel, onOK }: SigninPopUp
   {
-    //itemList: List[str]
-
     //toast
     const successLoginToast = useToast(
       "success",
