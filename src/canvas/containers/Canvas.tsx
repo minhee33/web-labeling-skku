@@ -1011,6 +1011,7 @@ const Canvas = () => {
       <div
         className="wrapper"
         onClick={() => {
+          //팝업 닫기
           setIsSignupShown(false);
           setIsSigninShown(false);
           setIsCustomlabelsShown(false);
@@ -1286,6 +1287,8 @@ const Canvas = () => {
             size="small"
             onClick={() => {
               setIsCustomlabelsShown(true);
+              setIsSignupShown(false);
+              setIsSigninShown(false);
             }}
           />
           <Button
@@ -1295,6 +1298,8 @@ const Canvas = () => {
             size="small"
             onClick={() => {
               setIsSigninShown(true);
+              setIsSignupShown(false);
+              setIsCustomlabelsShown(false);
             }}
           />
           <Button
@@ -1304,6 +1309,8 @@ const Canvas = () => {
             size="small"
             onClick={() => {
               setIsSignupShown(true);
+              setIsSigninShown(false);
+              setIsCustomlabelsShown(false);
             }}
           />
         </div>
