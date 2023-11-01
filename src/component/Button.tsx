@@ -14,7 +14,7 @@ type ButtonProps = {
     icon: string;
     size: string;
     onClick: () => void;
-    iconName: string;
+    iconName?: string;
 }
 const Button = (props: ButtonProps) => {
 

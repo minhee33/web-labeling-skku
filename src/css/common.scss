@@ -1,101 +1,110 @@
 .click {
-    //div onClick 있을 때 사용
-    cursor: pointer;
+  //div onClick 있을 때 사용
+  cursor: pointer;
 }
 
 .background-white {
-    background-color: $white !important;
-    color: $black !important;
+  background-color: $white !important;
+  color: $black !important;
 }
 
 .center {
-    text-align: center !important;
-    justify-content: center !important;
-    align-items: center !important;
+  text-align: center !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.self-end {
+  align-items: flex-end;
+  align-self: flex-end;
 }
 
 .text-start {
-    text-align: start !important;
+  text-align: start !important;
 }
 
 .grid-2-2 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-items: center;
-    align-items: center;
-    justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+  justify-content: center;
 }
 
 //icon card에서 사용
 .grid-2-2-long {
-    grid-column-start: 1;
-    grid-column-end: 3;
+  grid-column-start: 1;
+  grid-column-end: 3;
 }
 
 .grid-2-2-long-width {
-    grid-column-start: 1;
-    grid-column-end: 3;
-    width: calc(100% - 32px); //전체 - padding
+  grid-column-start: 1;
+  grid-column-end: 3;
+  width: calc(100% - 32px); //전체 - padding
 }
 
 .gap-30 {
-    gap: 30px;
+  gap: 30px;
 }
 
 .gap-24 {
-    gap: 24px;
+  gap: 24px;
 }
 
 .gap-16 {
-    gap: 16px;
+  gap: 16px;
 }
 
 .gap-8 {
-    gap: 8px;
+  gap: 8px;
 }
 
 .grid-1-2 {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
 
-    justify-items: center;
-    align-items: center;
-    justify-content: center;
+  justify-items: center;
+  align-items: center;
+  justify-content: center;
 }
 
 .padding-120 {
-    padding: 120px;
-    width: calc(100% - 240px);
+  padding: 120px;
+  width: calc(100% - 240px);
 }
 
 .no-enter {
-    white-space: nowrap;
+  white-space: nowrap;
 }
 
 .white-background {
-    background-color: $white !important;
-    color: $black;
+  background-color: $white !important;
+  color: $black;
 }
 
 .black-background {
-    background-color: $black !important;
-    color: white;
+  background-color: $black !important;
+  color: white;
 }
-
 
 ///// MAX-WIDTH 1200 /////
 .max-box {
-    //destkop일 때만 사용
-    //상하 padding은 상위 class에서 정의 (120px)
-    padding: 0px 40px;
-    width: calc(100% - 80px);
+  //destkop일 때만 사용
+  //상하 padding은 상위 class에서 정의 (120px)
+  padding: 0px 40px;
+  width: calc(100% - 80px);
 
-    max-width: 1200px;
+  max-width: 1200px;
 
-    align-self: center;
+  align-self: center;
 }
 
 .row {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
 }
