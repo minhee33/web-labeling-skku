@@ -42,26 +42,4 @@ const ParseList: ParseLabel[] = [
     new ParseLabel("Right-shoe", "#6F606E"),
 ];
 
-const KeyPointList: ParseLabel[] = [
-    new ParseLabel("0", "#780000", "Nose"),
-    new ParseLabel("1", "#007300", "Neck"),
-    new ParseLabel("2", "#6D6F00", "RShoulder"),
-    new ParseLabel("3", "#000071", "RElbow"),
-    new ParseLabel("4", "#72006C", "RWrist"),
-    new ParseLabel("5", "#00716E", "LShoulder"),
-    new ParseLabel("6", "#6C6C6C", "LElbow"),
-    new ParseLabel("7", "#330000", "LWrist"),
-    new ParseLabel("8", "#C50000", "RHip"),
-    new ParseLabel("9", "#1C7100", "RKnee"),
-    new ParseLabel("10", "#B46400", "RAnkle"),
-    new ParseLabel("11", "#360072", "LHip"),
-    new ParseLabel("12", "#C50070", "LKnee"),
-    new ParseLabel("13", "#1D706E", "LAnkle"),
-    new ParseLabel("14", "#BB666A", "REye"),
-    new ParseLabel("15", "#003100", "LEye"),
-    new ParseLabel("16", "#752C00", "REar"),
-    new ParseLabel("17", "#00BD00", "LEar"),
-    new ParseLabel("18", "#5BBA00", "Background")
-];
-
-export { ParseLabel, ParseList, KeyPointList };
+export { ParseLabel, ParseList };

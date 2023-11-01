@@ -1,4 +1,4 @@
-import { ParseLabel, ParseList, KeyPointList } from "../constant";
+import { ParseLabel, ParseList } from "../constant";
 
 const _CHANGE = "CHANGE_LABELS";
 

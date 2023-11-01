@@ -27,7 +27,7 @@ import {
   SignupPopUp,
   CustomLabelPopUp,
 } from "../components/index";
-import { IconButton, DropDown, Button } from "../../component/index";
+import { IconButton, Button } from "../../component/index";
 import { ParseLabel } from "../../constant/index";
 
 import { KonvaEventObject } from "konva/lib/Node";

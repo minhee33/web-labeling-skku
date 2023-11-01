@@ -37,7 +37,7 @@ const CustomLabelPopUp = ({ onClose, key }: CustomLabelPopUpProps) => {
   );
 
   useEffect(() => {
-    const fetchUsers = async () => {
+    const fetchLabels = async () => {
       try {
         const user_id = await getCookie("user_id");
         await axios
@@ -56,8 +56,7 @@ const CustomLabelPopUp = ({ onClose, key }: CustomLabelPopUpProps) => {
         failToast.showToast();
       }
     };
-
-    fetchUsers();
+    fetchLabels();
   }, []);
   return (
     <div className="popup" key={key}>
